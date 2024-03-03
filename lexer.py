@@ -2,23 +2,20 @@
 from constants import *
 
 def lex_string(string:str):
-    json_string = ''
-    if string[0] == JSON_QUOTE:
-        string = string[1:]
-    else :
-        return None,string
-    
-    for c  in  string :
-        if c == JSON_QUOTE:
-            """
-                We are sucessfully able to lex it as string 
-                return the lexed string and the remaining data to be parsed
-            """
-            return json_string,string(len[json_string+1:])
-        else:
-            json_string += c
-            
-        raise Exception('Expected end-of-string quote')
+     json_string = ''
+
+     if string[0] == JSON_QUOTE:
+            string = string[1:]
+     else:
+            return None, string
+
+     for c in string:
+            if c == JSON_QUOTE:
+                return json_string, string[len(json_string)+1:]
+            else:
+                json_string += c
+
+     raise Exception('Expected end-of-string quote')
 
 def lex_number(num_str:str):
     json_num = ''
